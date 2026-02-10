@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Gowdra ❤️</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:monospace;
+    overflow:hidden;
+    text-align:center;
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    animation:twinkle 2s infinite alternate;
+}
+@keyframes twinkle{from{opacity:0.2;}to{opacity:1;}}
+
+/* Center box */
+#box{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:80%;
+    font-size:24px;
+    line-height:1.6;
+}
+
+/* Fade animation */
+.fade{
+    opacity:0;
+    animation:fade 3s forwards;
+}
+@keyframes fade{to{opacity:1;}}
+
+#heart{
+    font-size:60px;
+    color:pink;
+    display:none;
+    animation:beat 1s infinite;
+}
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="box"></div>
+<div id="heart">❤️</div>
+
+<script>
+// stars
+for(let i=0;i<200;i++){
+ let s=document.createElement("div");
+ s.className="star";
+ s.style.left=Math.random()*100+"vw";
+ s.style.top=Math.random()*100+"vh";
+ document.body.appendChild(s);
+}
+
+// story messages
+let lines=[
+"Out of millions of people in this world...",
+"My heart somehow searched only for you, Gowdra.",
+"I still remember the day you came into my life.",
+"Everything was normal before you...",
+"But after you — songs felt deeper, nights felt peaceful.",
+"You didn’t just become my girlfriend...",
+"You became my comfort, my habit, my home.",
+"Today is not just a day...",
+"It’s our First Love Anniversary 💞",
+"And I promise...",
+"No matter how many years pass...",
+"I will still choose you again and again."
+];
+
+let i=0;
+function showLine(){
+ if(i<lines.length){
+   document.getElementById("box").innerHTML="<div class='fade'>"+lines[i]+"</div>";
+   i++;
+   setTimeout(showLine,3500);
+ }else{
+   document.getElementById("box").innerHTML="<h1 class='fade'>Happy First Love Anniversary Gowdra ❤️</h1>";
+   document.getElementById("heart").style.display="block";
+ }
+}
+showLine();
+</script>
+
+</body>
+</html>
