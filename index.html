@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>For Gowdra ❤️</title>
+<title>For Gowdra 🤍</title>
 
 <style>
 body{
@@ -23,13 +23,13 @@ body{
 }
 @keyframes twinkle{from{opacity:0.2;}to{opacity:1;}}
 
-/* Center box */
+/* Center text */
 #box{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:80%;
+    width:85%;
     font-size:24px;
     line-height:1.6;
 }
@@ -41,36 +41,54 @@ body{
 }
 @keyframes fade{to{opacity:1;}}
 
+/* Heart */
 #heart{
-    font-size:60px;
-    color:pink;
+    font-size:65px;
     display:none;
-    animation:beat 1s infinite;
+    animation:beat 1.2s infinite;
 }
 @keyframes beat{
     0%{transform:scale(1);}
     50%{transform:scale(1.2);}
     100%{transform:scale(1);}
 }
+
+/* Signature */
+#sign{
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    font-size:18px;
+    color:#aaa;
+    opacity:0;
+    animation:fade 3s forwards;
+    animation-delay:3s;
+}
 </style>
 </head>
 
 <body>
 
+
+
 <div id="box"></div>
-<div id="heart">❤️</div>
+<div id="heart">🤍</div>
+<div id="sign"> Abhishek</div>
 
 <script>
+
 // stars
 for(let i=0;i<200;i++){
  let s=document.createElement("div");
  s.className="star";
  s.style.left=Math.random()*100+"vw";
  s.style.top=Math.random()*100+"vh";
+ s.style.animationDuration=(Math.random()*3+1)+"s";
  document.body.appendChild(s);
 }
 
-// story messages
+// story lines
 let lines=[
 "Out of millions of people in this world...",
 "My heart somehow searched only for you, Gowdra.",
@@ -79,24 +97,29 @@ let lines=[
 "But after you — songs felt deeper, nights felt peaceful.",
 "You didn’t just become my girlfriend...",
 "You became my comfort, my habit, my home.",
-"Today is not just a day...",
-"It’s our First Love Anniversary 💞",
-"And I promise...",
-"No matter how many years pass...",
-"I will still choose you again and again."
+"Today is our First Love Anniversary 💞",
+"Life changed… time changed… we changed.",
+"Maybe love ended… but respect never did.",
+"And today — we stand not as lovers...",
+"But as two good friends who once meant everything.",
+"If you continue with love… I’ll still stay, even if just as a friend."
 ];
 
 let i=0;
+
 function showLine(){
  if(i<lines.length){
    document.getElementById("box").innerHTML="<div class='fade'>"+lines[i]+"</div>";
    i++;
    setTimeout(showLine,3500);
  }else{
-   document.getElementById("box").innerHTML="<h1 class='fade'>Happy First Love Anniversary Gowdra ❤️</h1>";
+   document.getElementById("box").innerHTML=
+   "<h1 class='fade'>Happy First Love Anniversary Gowdra 🤍</h1>" +
+   "<div class='fade'>I still wish you happiness always.</div>";
    document.getElementById("heart").style.display="block";
  }
 }
+
 showLine();
 </script>
 
